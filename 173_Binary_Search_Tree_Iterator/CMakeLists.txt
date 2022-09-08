@@ -5,6 +5,7 @@ project(${PROJ_NAME})
 
 set(SOURCE_FILES
     src/solution.h
+    src/solution2.h
     src/main.cpp
     )
 
