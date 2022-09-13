@@ -1,9 +1,12 @@
 #include <iostream>
-#include "solution.h"
+#include "solution_recursive.h"
 #include "test.h"
 
 bool cheack(ListNode *head, int arr[], size_t arrLen)
 {
+    if (!head && !arrLen) {
+        return true;
+    }
     bool result = false;
     int i = 0;
     while (head && i < arrLen) {
@@ -60,12 +63,22 @@ void test_3()
     assert_that(cheack(n, arr, sizeof(arr) / sizeof(arr[0])) == true, "");
 }
 
+void test_4()
+{
+    Solution sol;
+    ListNode *n = sol.reverseList(nullptr);
+
+    int arr[]{};
+    assert_that(cheack(n, arr, sizeof(arr) / sizeof(arr[0])) == true, "");
+}
+
 
 int main()
 {
-    run_test(test_1, "test_1");
-    run_test(test_2, "test_2");
-    run_test(test_3, "test_3");
+//    run_test(test_1, "test_1");
+//    run_test(test_2, "test_2");
+//    run_test(test_3, "test_3");
+    run_test(test_4, "test_4");
 
     return 0;
 }

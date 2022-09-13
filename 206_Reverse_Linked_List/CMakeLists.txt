@@ -5,6 +5,7 @@ project(${PROJ_NAME})
 
 set(SOURCE_FILES
     src/solution.h
+    src/solution_recursive.h
     src/main.cpp
     )
 
