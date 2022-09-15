@@ -2,8 +2,7 @@
 
 #include <exception>
 #include <iostream>
-#include <iomanip>
-#include <chrono>
+#include <functional>
 
 void assert_that(bool statement, const char *message)
 {
@@ -12,15 +11,11 @@ void assert_that(bool statement, const char *message)
     }
 }
 
-void run_test(void (*test_fun)(), const char *name)
+void run_test(std::function<void()> test_fun, const char *name)
 {
     try {
-        std::chrono::system_clock clock;
-        auto start = clock.now();
         test_fun();
-        std::chrono::duration<double> timeDiff = clock.now() - start;
-        std::cout << std::fixed << std::setprecision(10) << std::left;
-        std::cout << "[+] Test [" << name << "] successful [time: "<< timeDiff.count() << "]" << std::endl;
+        std::cout << "[+] Test [" << name << "] successful" << std::endl;
     } catch (const std::exception &ex) {
         std::cout << "[-] Test failure in [" << name << "]. " << ex.what() << std::endl;
     }
