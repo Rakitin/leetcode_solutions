@@ -6,7 +6,7 @@
 class Solution {
 public:
     int maxProfit(std::vector<int>& prices) {
-        if (!prices.size()) {
+        if (prices.size() < 2) {
             return 0;
         }
         int profit = 0;
